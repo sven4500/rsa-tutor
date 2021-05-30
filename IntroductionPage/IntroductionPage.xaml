@@ -8,12 +8,17 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="IntroductionPage">
     <Grid>
-        <ScrollViewer VerticalScrollBarVisibility="Auto">
-            <TextBlock TextAlignment="Justify" TextWrapping="WrapWithOverflow" FontSize="16" >    
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="9*"/>
+        </Grid.RowDefinitions>
+        <TextBlock FontSize="20" VerticalAlignment="Center"><Bold>Введение</Bold></TextBlock>
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <TextBlock Margin="0,0,10,0" TextAlignment="Justify" TextWrapping="WrapWithOverflow" FontSize="16" >    
                 <Bold>RSA</Bold> (аббревиатура от фамилий Rivest, Shamir и Adleman) - асиметричный криптографический алгоритм,
                 основанный на вычислительной сложности задачи факторизации больших целых чисел.
                 <LineBreak/><LineBreak/>
-                <Italic>Асиметричный</Italic> означает что для задачи шифрования и дешифрования используются разные ключи.
+                <Italic>Асиметричный</Italic> означает что для задачи шифрования и дешифрования данных используются разные ключи.
                 <Italic>Ключом</Italic> в свою очередь называют некоторое число или несколько чисел которые участвуют в процессе
                 шифорвания и дешифрования данных.
                 <LineBreak/><LineBreak/>
@@ -27,9 +32,9 @@
                 прочитать полученное сообщение.
                 <LineBreak/><LineBreak/>
                 Таким образом <Italic>приватный</Italic> ключ использует только получатель для дешифрования сообщения.
-                <Italic>Публичный</Italic> ключ использует только отправитель для шифрования сообщения. Стоит обратить
-                внимание что после шифрования, даже отправитель больше не сможет прочитать зашифрованное сообщение так
-                как для его прочтения требуется приватный ключ, а он известен только получателю.
+                <Italic>Публичный</Italic> ключ использует только отправитель для шифрования сообщения. Отсюда вытекает
+                что зашифрованное сообщение не сможет прочитать даже отправитель так как для его прочтения требуется
+                приватный ключ, а он известен только получателю.
             </TextBlock>
         </ScrollViewer>
     </Grid>

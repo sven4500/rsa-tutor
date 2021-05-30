@@ -12,12 +12,13 @@
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="14*" />
-            <ColumnDefinition Width="3*" />
-            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="7*" />
+            <ColumnDefinition Width="1.5*" />
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="1.5*" />
         </Grid.ColumnDefinitions>
-        <Frame Name="ContentsFrame" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" Source="../IntroductionPage/IntroductionPage.xaml" FontSize="20" />
-        <Button Name="NextButton" Grid.Row="1" Grid.Column="2" Content="Далее" VerticalAlignment="Center" />
+        <Frame Name="ContentsFrame" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Source="../EncryptionPage/EncryptionPage.xaml" FontSize="20" />
+        <Button Name="NextButton" Grid.Row="1" Grid.Column="3" Content="Далее" VerticalAlignment="Center" />
         <Button Name="PrevButton" Grid.Row="1" Grid.Column="1" Content="Назад" VerticalAlignment="Center" />
     </Grid>
 </Window>
