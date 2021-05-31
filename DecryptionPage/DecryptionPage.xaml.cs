@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace RSATutor.DecryptionPage
+namespace RSATutor
 {
     /// <summary>
     /// Interaction logic for DecryptionPage.xaml

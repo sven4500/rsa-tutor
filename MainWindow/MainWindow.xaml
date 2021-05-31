@@ -6,19 +6,37 @@
         xmlns:local="clr-namespace:RSATutor"
         mc:Ignorable="d"
         Title="RSATutor" Height="450" Width="800" >
-    <Grid Margin="10,10" >
+    <Grid Name="MainGrid" Margin="10">
         <Grid.RowDefinitions>
-            <RowDefinition Height="9*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="8*" />
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="7*" />
-            <ColumnDefinition Width="1.5*" />
-            <ColumnDefinition Width="10" />
-            <ColumnDefinition Width="1.5*" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="1*" />
         </Grid.ColumnDefinitions>
-        <Frame Name="ContentsFrame" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Source="../EncryptionPage/EncryptionPage.xaml" FontSize="20" />
-        <Button Name="NextButton" Grid.Row="1" Grid.Column="3" Content="Далее" VerticalAlignment="Center" />
-        <Button Name="PrevButton" Grid.Row="1" Grid.Column="1" Content="Назад" VerticalAlignment="Center" />
+        <TextBlock Name="PageTitle" FontSize="20" Grid.ColumnSpan="2"/>
+        <Expander Name="PageDescriptionExpander" ExpandDirection="Right" Header="" Grid.Row="1"
+                Expanded="PageDescriptionExpander_Expanded" >
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <TextBlock Name="PageDescription" FontSize="16" TextAlignment="Justify" TextWrapping="WrapWithOverflow" Margin="10" />
+            </ScrollViewer>
+        </Expander>
+        <Frame Name="ContentsFrame" NavigationUIVisibility="Hidden" Grid.Row="1" Grid.Column="1"/>
+        <Grid Grid.Row="2" Grid.ColumnSpan="3" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Button Name="PrevButton"
+			    Content="Назад" Grid.Column="1"
+			    Click="PrevButton_Click"/>
+            <Button Name="NextButton"
+			    Content="Далее" Grid.Column="3"
+			    Click="NextButton_Click"/>
+        </Grid>
     </Grid>
 </Window>

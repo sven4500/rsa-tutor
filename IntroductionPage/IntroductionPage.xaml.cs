@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace RSATutor.IntrodutionPage
+namespace RSATutor
 {
     /// <summary>
     /// Interaction logic for Page1.xaml
     /// </summary>
-    public partial class Page1 : Page
+    public partial class IntroductionPage : Page
     {
-        public Page1()
+        public IntroductionPage()
         {
             InitializeComponent();
         }
