@@ -23,7 +23,7 @@
                 <TextBlock Name="PageDescription" FontSize="16" TextAlignment="Justify" TextWrapping="WrapWithOverflow" Margin="10" />
             </ScrollViewer>
         </Expander>
-        <Frame Name="ContentsFrame" NavigationUIVisibility="Hidden" Grid.Row="1" Grid.Column="1"/>
+        <Frame Name="ContentsFrame" NavigationUIVisibility="Hidden" Margin="10" Grid.Row="1" Grid.Column="1"/>
         <Grid Grid.Row="2" Grid.ColumnSpan="3" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="6*"/>
@@ -31,10 +31,10 @@
                 <ColumnDefinition Width="10"/>
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
-            <Button Name="PrevButton"
+            <Button Name="PrevButton" VerticalAlignment="Center"
 			    Content="Назад" Grid.Column="1"
 			    Click="PrevButton_Click"/>
-            <Button Name="NextButton"
+            <Button Name="NextButton" VerticalAlignment="Center"
 			    Content="Далее" Grid.Column="3"
 			    Click="NextButton_Click"/>
         </Grid>

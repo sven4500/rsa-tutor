@@ -12,35 +12,43 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
-            <RowDefinition Height="3.5*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="3.5*"/>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="4*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="5*"/>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="5*"/>
         </Grid.ColumnDefinitions>
-        <TextBlock Grid.Row="1" Grid.Column="0"
+        <Grid Grid.ColumnSpan="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="2.5*"/>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="2.5*"/>
+                <ColumnDefinition Width="2.5*"/>
+                <ColumnDefinition Width="1.5*"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Content="e" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBox Grid.Column="1" VerticalAlignment="Center"/>
+            <Label Grid.Column="2" Content="n" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBox Grid.Column="3" VerticalAlignment="Center"/>
+            <Button Grid.Column="5" Content="Шифровать"/>
+        </Grid>
+        <TextBlock Grid.Row="1" Grid.Column="0" Margin="10,0,0,0"
             VerticalAlignment="Center" Text="Исходное сообщение"/>
         <TextBox Grid.Row="2" Grid.Column="0"/>
-        <TextBlock Grid.Row="3" Grid.Column="0"
-            VerticalAlignment="Center" Text="Шестнадцатеричное"/>
         <TextBox Grid.Row="4" Grid.Column="0"
             IsEnabled="False"/>
         <!-- PreviousAndNext потому что колонка имеет размер *-->
-        <GridSplitter Grid.Column="1" Grid.Row="1" Grid.RowSpan="4"
+        <GridSplitter Grid.Column="1" Grid.Row="1" Grid.RowSpan="4" Background="White"
             ResizeDirection="Columns" ShowsPreview="False" ResizeBehavior="PreviousAndNext" Width="10"/>
-        <TextBlock Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2"
+        <TextBlock Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2" Margin="10,0,0,0"
             VerticalAlignment="Center" Text="Зашифрованное сообщение"/>
         <TextBox Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="2"
             IsEnabled="False"/>
-        <TextBlock Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="2"
-            VerticalAlignment="Center" Text="Шестнадцатеричное"/>
         <TextBox Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="2"
             IsEnabled="False"/>
-        <Button Grid.Row="5" Grid.Column="5"
-            VerticalAlignment="Center" HorizontalAlignment="Right" Content="Шифровать"/>
     </Grid>
 </Page>
