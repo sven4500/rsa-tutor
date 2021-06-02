@@ -31,15 +31,18 @@
                 <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
             <TextBlock Grid.Column="0" Text="p" VerticalAlignment="Center" HorizontalAlignment="Center" />
-            <TextBox Grid.Column="1" VerticalAlignment="Center" />
-            <Button Content="Случайное" Grid.Column="2" VerticalAlignment="Center" Width="75" Height="20" />
+            <TextBox Name="PTextBox" Grid.Column="1" VerticalAlignment="Center"/>
+            <Button Name="PRandButton" Content="Случайное" Grid.Column="2" VerticalAlignment="Center" Width="75" Height="20" Click="PRandButton_Click"/>
             <TextBlock Grid.Column="3" Text="q" VerticalAlignment="Center" HorizontalAlignment="Center" />
-            <TextBox Grid.Column="4" VerticalAlignment="Center"/>
-            <Button Content="Случайное" Grid.Column="5" VerticalAlignment="Center" Width="75" Height="20"/>
-            <Button Content="Генерировать" Grid.Column="6" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="20"/>
+            <TextBox Name="QTextBox" Grid.Column="4" VerticalAlignment="Center"/>
+            <Button Name="QRandButton" Content="Случайное" Grid.Column="5" VerticalAlignment="Center" Width="75" Height="20" Click="QRandButton_Click"/>
+            <Button Name="GenerateButton" Content="Сгенерировать" Grid.Column="6" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="20" Click="GenerateButton_Click"/>
         </Grid>
         <TextBlock TextWrapping="Wrap" TextAlignment="Justify" Grid.ColumnSpan="2">
-            Задайте два простых целых числа p и q.
+            Задайте два простых целых числа p и q либо нажмите на кнопку "Случайное" чтобы
+            сгенерировать случайное простое число. Данная демонстрационная программа разбивает
+            данные на блоки размером k = 8 бит поэтому p и q должны быть >= 17. Нажмите кнопку
+            "Сгенерировать" чтобы сгенерировать ключи.
         </TextBlock>
         <GroupBox Header="Публичный ключ" HorizontalAlignment="Stretch" Margin="10" Grid.Row="2" VerticalAlignment="Stretch">
             <Grid HorizontalAlignment="Stretch" Margin="10" VerticalAlignment="Stretch" >
@@ -49,16 +52,16 @@
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="3*"/>
-                    <RowDefinition Height="3*"/>
-                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="2*"/>
                 </Grid.RowDefinitions>
-                <TextBox Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Center" />
-                <TextBox Grid.Column="1" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Center" />
+                <TextBox Name="ETextBox" Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Center" />
+                <TextBox Name="PubNTextBox" Grid.Column="1" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Center" />
                 <TextBlock HorizontalAlignment="Center" Grid.Row="1" TextWrapping="Wrap" Text="e" VerticalAlignment="Center"/>
                 <TextBlock HorizontalAlignment="Center" Grid.Row="2" TextWrapping="Wrap" Text="n" VerticalAlignment="Center"/>
-                <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap" VerticalAlignment="Stretch" Grid.ColumnSpan="2">
+                <TextBlock HorizontalAlignment="Stretch" TextAlignment="Justify" TextWrapping="Wrap" VerticalAlignment="Stretch" Grid.ColumnSpan="2">
                     Это публичный ключ. Его стоит передать отправителю сообщений.
-                    Он воспользуется ключом для шифрования сообщений.
+                    Он воспользуется этим ключом чтобы зашифровать отправляемые сообщения.
                 </TextBlock>
             </Grid>
         </GroupBox>
@@ -70,16 +73,16 @@
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="3*"/>
-                    <RowDefinition Height="3*"/>
-                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="2*"/>
                 </Grid.RowDefinitions>
                 <TextBlock HorizontalAlignment="Center" Grid.Row="1" TextWrapping="Wrap" Text="d" VerticalAlignment="Center"/>
                 <TextBlock HorizontalAlignment="Center" Grid.Row="2" TextWrapping="Wrap" Text="n" VerticalAlignment="Center"/>
-                <TextBox Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Center" />
-                <TextBox Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Center" />
-                <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap" VerticalAlignment="Stretch" Grid.ColumnSpan="2" >
-                    Это приватный ключ. Его стоит хранить в секрете.
-                    Используйте его для дешифрования собщений.
+                <TextBox Name="DTextBox" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Center" />
+                <TextBox Name="PriNTextBox" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Center" />
+                <TextBlock HorizontalAlignment="Stretch" TextAlignment="Justify" TextWrapping="Wrap" VerticalAlignment="Stretch" Grid.ColumnSpan="2" >
+                    Это приватный ключ. Вы воспользуетесь им чтобы
+                    дешифровать принятые сообщения. Его стоит хранить в секрете.
                 </TextBlock>
             </Grid>
         </GroupBox>

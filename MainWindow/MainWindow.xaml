@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RSATutor"
         mc:Ignorable="d"
-        Title="RSATutor" Height="450" Width="800" >
+        Title="RSATutor" Height="450" Width="800" ResizeMode="CanMinimize">
     <Grid Name="MainGrid" Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="1*" />
