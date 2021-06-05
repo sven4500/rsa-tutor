@@ -47,7 +47,7 @@ namespace RSATutor
             }
         }
         
-        public ulong P
+        private ulong P
         {
             get
             {
@@ -60,7 +60,7 @@ namespace RSATutor
             }
         }
         
-        public ulong Q
+        private ulong Q
         {
             get
             {

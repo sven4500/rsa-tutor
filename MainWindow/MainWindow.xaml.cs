@@ -21,7 +21,11 @@ namespace RSATutor
     /// </summary>
     public partial class MainWindow : Window
     {
-        private Page[] pages = { new IntroductionPage(), new KeyGeneratorPage(), new EncryptionPage(), new DecryptionPage() };
+        private IntroductionPage introdutionPage = new IntroductionPage();
+        private KeyGeneratorPage keyGeneratorPage = new KeyGeneratorPage();
+        private EncryptionPage encryptionPage = new EncryptionPage();
+        private DecryptionPage decryptionPage = new DecryptionPage();
+
         private int pageNumber = 0;
 
         public MainWindow()
@@ -32,18 +36,43 @@ namespace RSATutor
 
         void setPage(int pageNumber)
         {
-            if (pageNumber < 0 || pageNumber >= pages.Length)
+            if (pageNumber < 0 || pageNumber >= 4)
                 return;
 
-            Page page = pages[pageNumber];
-            Page prevPage = (pageNumber > 0) ? pages[pageNumber - 1] : null;
+            Page page = null;
 
-            PageTitle.Text = page.Title;
-            PageDescription.Text = page.Tag as string;
+            switch (pageNumber)
+            {
+                case 0:
+                    page = introdutionPage;
+                    break;
+                case 1:
+                    page = keyGeneratorPage;
+                    break;
+                case 2:
+                    page = encryptionPage;
+                    encryptionPage.E = keyGeneratorPage.E;
+                    encryptionPage.N = keyGeneratorPage.N;
+                    break;
+                case 3:
+                    page = decryptionPage;
+                    decryptionPage.EncryptedMessage = encryptionPage.EncryptedMessage;
+                    decryptionPage.D = keyGeneratorPage.D;
+                    decryptionPage.N = keyGeneratorPage.N;
+                    break;
+                default:
+                    page = null;
+                    break;
+            }
+        
+            if (page != null)
+            {
+                PageTitle.Text = page.Title;
+                PageDescription.Text = page.Tag as string;
+
+                ContentsFrame.Navigate(page);
+            }
             
-            ContentsFrame.Navigate(page);
-            
-            PageDescriptionExpander.IsExpanded = (pageNumber == 0);
             updateExpanderWidth();
 
             this.pageNumber = pageNumber;
