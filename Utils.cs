@@ -19,5 +19,17 @@ namespace RSATutor
 
             return output;
         }
+
+        public static string toString(byte[] input)
+        {
+            string str = "";
+
+            foreach (byte b in input)
+            {
+                str += string.Format("0x{0:X2} ", b);
+            }
+
+            return str;
+        }
     }
 }
