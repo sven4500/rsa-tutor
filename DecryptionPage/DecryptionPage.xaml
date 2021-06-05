@@ -33,7 +33,7 @@
             <TextBox Grid.Column="1" VerticalAlignment="Center"/>
             <Label Grid.Column="2" Content="n" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             <TextBox Grid.Column="3" VerticalAlignment="Center"/>
-            <Button Grid.Column="5" Content="Дешифровать"/>
+            <Button Grid.Column="5" Content="Дешифровать" Width="100" Height="20"/>
         </Grid>
         <TextBlock Grid.Row="1" Grid.Column="0" Margin="10,0,0,0"
             VerticalAlignment="Center" Text="Зашифрованное сообщение"/>

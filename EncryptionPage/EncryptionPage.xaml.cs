@@ -15,14 +15,43 @@ using System.Windows.Shapes;
 
 namespace RSATutor
 {
-    /// <summary>
-    /// Interaction logic for EncryptionPage.xaml
-    /// </summary>
     public partial class EncryptionPage : Page
     {
+        public ulong E
+        {
+            get
+            {
+                return Convert.ToUInt64(ETextBox.Text);
+            }
+
+            set
+            {
+                ETextBox.Text = value.ToString();
+            }
+        }
+
+        public ulong N
+        {
+            get
+            {
+                return Convert.ToUInt64(NTextBox.Text);
+            }
+
+            set
+            {
+                NTextBox.Text = value.ToString();
+            }
+        }
+        
         public EncryptionPage()
         {
             InitializeComponent();
+        }
+
+        private void EncryptButton_Click(object sender, RoutedEventArgs e)
+        {
+            byte[] inputBin = Encoding.ASCII.GetBytes(InputTextBox.Text);
+            double[] encryptedBin = Utils.encrypt(inputBin, E, N);
         }
     }
 }

@@ -34,13 +34,19 @@ namespace RSATutor
         {
             if (pageNumber < 0 || pageNumber >= pages.Length)
                 return;
+
             Page page = pages[pageNumber];
-            PageDescriptionExpander.IsExpanded = (pageNumber == 0);
-            ContentsFrame.Navigate(page);
+            Page prevPage = (pageNumber > 0) ? pages[pageNumber - 1] : null;
+
             PageTitle.Text = page.Title;
             PageDescription.Text = page.Tag as string;
-            this.pageNumber = pageNumber;
+            
+            ContentsFrame.Navigate(page);
+            
+            PageDescriptionExpander.IsExpanded = (pageNumber == 0);
             updateExpanderWidth();
+
+            this.pageNumber = pageNumber;
         }
 
         private void NextButton_Click(object sender, RoutedEventArgs e)
@@ -52,12 +58,17 @@ namespace RSATutor
         {
             setPage(pageNumber - 1);
         }
+
         private void updateExpanderWidth()
         {
             if (pageNumber == 0)
+            {
                 PageDescriptionExpander.MaxWidth = MainGrid.ActualWidth;
+            }
             else
+            {
                 PageDescriptionExpander.MaxWidth = MainGrid.ActualWidth / 3;
+            }
         }
 
         private void PageDescriptionExpander_Expanded(object sender, RoutedEventArgs e)
