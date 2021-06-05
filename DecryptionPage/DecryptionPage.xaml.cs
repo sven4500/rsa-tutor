@@ -70,5 +70,13 @@ namespace RSATutor
         {
             InitializeComponent();
         }
+        
+        private void DecryptButton_Click(object sender, RoutedEventArgs e)
+        {
+            byte[] decryptedBytes = Utils.Decrypt(EncryptedMessage, D, N);
+
+            OutputTextBox.Text = System.Text.Encoding.Default.GetString(decryptedBytes);
+            OutputBinTextBox.Text = Utils.ToString(decryptedBytes);
+        }
     }
 }

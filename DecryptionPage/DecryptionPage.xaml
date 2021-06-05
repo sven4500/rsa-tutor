@@ -33,20 +33,18 @@
             <TextBox Name="DTextBox" Grid.Column="1" VerticalAlignment="Center"/>
             <Label Grid.Column="2" Content="n" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             <TextBox Name="NTextBox" Grid.Column="3" VerticalAlignment="Center"/>
-            <Button Grid.Column="5" Content="Дешифровать" Width="100" Height="20"/>
+            <Button Name="DecryptButton" Grid.Column="5" Content="Дешифровать" Width="100" Height="20" Click="DecryptButton_Click"/>
         </Grid>
         <TextBlock Grid.Row="1" Grid.Column="0" Margin="10,0,0,0"
             VerticalAlignment="Center" Text="Зашифрованное сообщение"/>
         <TextBox Name="InputTextBox" Grid.Row="2" Grid.Column="0"/>
-        <TextBox Name="InputBinTextBox" Grid.Row="4" Grid.Column="0" IsEnabled="False"/>
+        <TextBox Name="InputBinTextBox" Grid.Row="4" Grid.Column="0" IsReadOnly="True" TextWrapping="WrapWithOverflow" VerticalScrollBarVisibility="Auto"/>
         <!-- PreviousAndNext потому что колонка имеет размер *-->
         <GridSplitter Grid.Column="1" Grid.Row="1" Grid.RowSpan="4" Background="White"
             ResizeDirection="Columns" ShowsPreview="False" ResizeBehavior="PreviousAndNext" Width="10"/>
         <TextBlock Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2" Margin="10,0,0,0"
             VerticalAlignment="Center" Text="Дешифрованное сообщение"/>
-        <TextBox Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="2"
-            IsEnabled="False"/>
-        <TextBox Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="2"
-            IsEnabled="False"/>
+        <TextBox Name="OutputTextBox" Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="2" IsReadOnly="True" TextWrapping="WrapWithOverflow" VerticalScrollBarVisibility="Auto"/>
+        <TextBox Name="OutputBinTextBox" Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="2" IsReadOnly="True" TextWrapping="WrapWithOverflow" VerticalScrollBarVisibility="Auto"/>
     </Grid>
 </Page>

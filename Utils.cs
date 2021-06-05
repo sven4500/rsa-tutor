@@ -33,6 +33,18 @@ namespace RSATutor
             return output;
         }
 
+        public static byte[] Decrypt(ulong[] input, ulong d, ulong n)
+        {
+            byte[] output = new byte[input.Length];
+
+            for (int i = 0; i < input.Length; ++i)
+            {
+                output[i] = (byte)PowMod(input[i], d, n);
+            }
+
+            return output;
+        }
+
         public static string ToString(byte[] input)
         {
             string str = "";
