@@ -8,19 +8,32 @@ namespace RSATutor
 {
     class Utils
     {
-        public static double[] encrypt(byte[] input, ulong e, ulong n)
+        public static ulong PowMod(ulong baseVal, ulong powerVal, ulong modVal)
         {
-            double[] output = new double[input.Length];
+            ulong answer = 1;
+
+            for (ulong i = 0; i < powerVal; ++i)
+            {
+                answer *= baseVal;
+                answer %= modVal;
+            }
+
+            return answer;
+        }
+
+        public static ulong[] Encrypt(byte[] input, ulong e, ulong n)
+        {
+            ulong[] output = new ulong[input.Length];
 
             for(int i = 0; i < input.Length; ++i)
             {
-                output[i] = Math.Pow(input[i], e) % n;
+                output[i] = PowMod(input[i], e, n);
             }
 
             return output;
         }
 
-        public static string toString(byte[] input)
+        public static string ToString(byte[] input)
         {
             string str = "";
 

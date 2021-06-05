@@ -43,7 +43,7 @@ namespace RSATutor
             }
         }
 
-        public byte[] EncryptedData { get; set; }
+        public ulong[] EncryptedData { get; set; }
         
         public EncryptionPage()
         {
@@ -52,16 +52,16 @@ namespace RSATutor
 
         private void EncryptButton_Click(object sender, RoutedEventArgs e)
         {
-            byte[] inputBin = Encoding.ASCII.GetBytes(InputTextBox.Text);
-            double[] encrypted = Utils.encrypt(inputBin, E, N);
+            byte[] inputBytes = Encoding.ASCII.GetBytes(InputTextBox.Text);
+            EncryptedData = Utils.Encrypt(inputBytes, E, N);
 
-            EncryptedData = new byte[encrypted.Length * sizeof(double)];
-            Buffer.BlockCopy(encrypted, 0, EncryptedData, 0, EncryptedData.Length);
+            byte[] encryptedBytes = new byte[EncryptedData.Length * sizeof(ulong)];
+            Buffer.BlockCopy(EncryptedData, 0, encryptedBytes, 0, encryptedBytes.Length);
 
-            InputBinTextBox.Text = Utils.toString(inputBin);
+            InputBinTextBox.Text = Utils.ToString(inputBytes);
             
-            OutputTextBox.Text = System.Text.Encoding.Default.GetString(EncryptedData);
-            OutputBinTextBox.Text = Utils.toString(EncryptedData);
+            OutputTextBox.Text = System.Text.Encoding.Default.GetString(encryptedBytes);
+            OutputBinTextBox.Text = Utils.ToString(encryptedBytes);
         }
     }
 }
