@@ -16,9 +16,6 @@ using RSATutor;
 
 namespace RSATutor
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         private IntroductionPage introdutionPage = new IntroductionPage();
@@ -27,6 +24,7 @@ namespace RSATutor
         private DecryptionPage decryptionPage = new DecryptionPage();
 
         private int pageNumber = 0;
+        private int maxPageNumber = 3;
 
         public MainWindow()
         {
@@ -36,7 +34,7 @@ namespace RSATutor
 
         void setPage(int pageNumber)
         {
-            if (pageNumber < 0 || pageNumber >= 4)
+            if (pageNumber < 0 || pageNumber > maxPageNumber)
                 return;
 
             Page page = null;
@@ -64,7 +62,7 @@ namespace RSATutor
                     page = null;
                     break;
             }
-        
+
             if (page != null)
             {
                 PageTitle.Text = page.Title;
@@ -72,10 +70,13 @@ namespace RSATutor
 
                 ContentsFrame.Navigate(page);
             }
-            
+
             updateExpanderWidth();
 
             this.pageNumber = pageNumber;
+
+            PrevButton.IsEnabled = (pageNumber != 0);
+            NextButton.IsEnabled = (pageNumber != maxPageNumber);
         }
 
         private void NextButton_Click(object sender, RoutedEventArgs e)

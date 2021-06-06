@@ -39,13 +39,13 @@
         <TextBlock Grid.Row="1" Grid.Column="0" Margin="10,0,0,0"
             VerticalAlignment="Center" Text="Исходное сообщение"/>
         <TextBox Name="InputTextBox" Grid.Row="2" Grid.Column="0" TextWrapping="WrapWithOverflow"/>
-        <TextBox Name="InputBinTextBox" Grid.Row="4" Grid.Column="0" IsReadOnly="True" TextWrapping="WrapWithOverflow" VerticalScrollBarVisibility="Auto"/>
+        <TextBox Name="InputBinTextBox" Grid.Row="4" Grid.Column="0" IsReadOnly="True" TextWrapping="WrapWithOverflow" VerticalScrollBarVisibility="Auto" FontFamily="Courier New"/>
         <!-- PreviousAndNext потому что колонка имеет размер *-->
         <GridSplitter Grid.Column="1" Grid.Row="1" Grid.RowSpan="4" Background="White"
             ResizeDirection="Columns" ShowsPreview="False" ResizeBehavior="PreviousAndNext" Width="10"/>
         <TextBlock Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2" Margin="10,0,0,0"
             VerticalAlignment="Center" Text="Зашифрованное сообщение"/>
         <TextBox Name="OutputTextBox" Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="2" IsReadOnly="True" TextWrapping="WrapWithOverflow"/>
-        <TextBox Name="OutputBinTextBox" Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="2" IsReadOnly="True" TextWrapping="WrapWithOverflow" VerticalScrollBarVisibility="Auto"/>
+        <TextBox Name="OutputBinTextBox" Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="2" IsReadOnly="True" TextWrapping="WrapWithOverflow" VerticalScrollBarVisibility="Auto" FontFamily="Courier New"/>
     </Grid>
 </Page>
