@@ -171,14 +171,10 @@ namespace RSATutor
                      where prime < Totient && GCD(prime, Totient) == 1
                      select prime;
             
-            E = ee.ElementAt(rand.Next(ee.Count()));
+            E = (ee.Count() > 0) ? ee.ElementAt(rand.Next(ee.Count())) : 0;
 
             // 3. Находим d.
             D = modInverse(E, Totient);
-
-            // Проверка.
-            Debug.Assert(GCD(E, Totient) == 1);
-            Debug.Assert((E * D) % Totient == 1);
         }
     }
 }

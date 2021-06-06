@@ -73,7 +73,7 @@ namespace RSATutor
 
         private void EncryptButton_Click(object sender, RoutedEventArgs e)
         {
-            byte[] inputBytes = Encoding.ASCII.GetBytes(InputTextBox.Text);
+            byte[] inputBytes = Encoding.Default.GetBytes(InputTextBox.Text);
             EncryptedMessage = Utils.Encrypt(inputBytes, E, N);
 
             InputBinTextBox.Text = Utils.ToString(inputBytes);
