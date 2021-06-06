@@ -12,18 +12,17 @@
             <RowDefinition Height="8*" />
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="1*" />
-        </Grid.ColumnDefinitions>
         <TextBlock Name="PageTitle" FontSize="20" Grid.ColumnSpan="2"/>
-        <Expander Name="PageDescriptionExpander" ExpandDirection="Right" Header="" Grid.Row="1"
-                Expanded="PageDescriptionExpander_Expanded" >
-            <ScrollViewer VerticalScrollBarVisibility="Auto">
-                <TextBlock Name="PageDescription" FontSize="16" TextAlignment="Justify" TextWrapping="WrapWithOverflow" Margin="10" />
-            </ScrollViewer>
-        </Expander>
-        <Frame Name="ContentsFrame" NavigationUIVisibility="Hidden" Margin="10" Grid.Row="1" Grid.Column="1"/>
+        <TabControl Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <TabItem Header="Описание">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <TextBlock Name="PageDescription" FontSize="16" TextAlignment="Justify" TextWrapping="WrapWithOverflow" Margin="10" />
+                </ScrollViewer>
+            </TabItem>
+            <TabItem Name="ToolsTab" Header="Инструменты" IsEnabled="False">
+                <Frame Name="ContentsFrame" NavigationUIVisibility="Hidden" Margin="10" Grid.Row="1" Grid.Column="1"/>
+            </TabItem>
+        </TabControl>
         <Grid Grid.Row="2" Grid.ColumnSpan="3" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="6*"/>
