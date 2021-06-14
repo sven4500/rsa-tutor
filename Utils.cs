@@ -6,6 +6,30 @@ using System.Threading.Tasks;
 
 namespace RSATutor
 {
+    public struct PublicKey
+    {
+        public PublicKey(ulong e_, ulong n_)
+        {
+            e = e_;
+            n = n_;
+        }
+
+        public ulong e;
+        public ulong n;
+    }
+
+    public struct PrivateKey
+    {
+        public PrivateKey(ulong d_, ulong n_)
+        {
+            d = d_;
+            n = n_;
+        }
+
+        public ulong d;
+        public ulong n;
+    }
+
     class Utils
     {
         //https://github.com/amughalbscs16/RSA-Implementation/blob/master/RSA%20in%20CPP/main.cpp
