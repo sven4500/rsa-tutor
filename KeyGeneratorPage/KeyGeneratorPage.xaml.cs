@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections.Generic; // Dictionary
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -29,10 +29,28 @@ namespace RSATutor
             811, 821, 823, 827, 829, 839, 853, 857, 859, 863, 877, 881, 883, 887, 907, 911, 919, 929, 937, 941,
             947, 953, 967, 971, 977, 983, 991, 997 };
 
+        private Dictionary<string, PublicKey> publicKeys = new Dictionary<string, PublicKey>();
+        public Dictionary<string, PublicKey> PublicKeys
+        {
+            get
+            {
+                return publicKeys;
+            }
+        }
+
+        private Dictionary<string, PrivateKey> privateKeys = new Dictionary<string, PrivateKey>();
+        public Dictionary<string, PrivateKey> PrivateKeys
+        {
+            get
+            {
+                return privateKeys;
+            }
+        }
+
         private Random rand = new Random();
 
         private ulong n = 0;
-        public ulong N
+        private ulong N
         {
             get
             {
@@ -73,7 +91,7 @@ namespace RSATutor
             }
         }
 
-        public ulong E
+        private ulong E
         {
             get
             {
@@ -86,7 +104,7 @@ namespace RSATutor
             }
         }
 
-        public ulong D
+        private ulong D
         {
             get
             {
@@ -111,7 +129,7 @@ namespace RSATutor
         {
             InitializeComponent();
         }
-
+        
         //https://stackoverflow.com/questions/18541832/c-sharp-find-the-greatest-common-divisor
         public static ulong GCD(ulong a, ulong b)
         {
@@ -175,6 +193,12 @@ namespace RSATutor
 
             // 3. Находим d.
             D = modInverse(E, Totient);
+        }
+        
+        private void SendButton_Click(object sender, RoutedEventArgs e)
+        {
+            publicKeys[EmailTextBox.Text] = new PublicKey(E, N);
+            privateKeys[EmailTextBox.Text] = new PrivateKey(D, N);
         }
     }
 }

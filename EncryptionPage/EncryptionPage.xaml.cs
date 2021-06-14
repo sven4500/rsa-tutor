@@ -17,7 +17,7 @@ namespace RSATutor
 {
     public partial class EncryptionPage : Page
     {
-        public ulong E
+        private ulong E
         {
             get
             {
@@ -30,7 +30,7 @@ namespace RSATutor
             }
         }
 
-        public ulong N
+        private ulong N
         {
             get
             {
@@ -65,6 +65,53 @@ namespace RSATutor
                 }
             }
         }
+
+        private Dictionary<string, PublicKey> publicKeys = new Dictionary<string, PublicKey>();
+        public Dictionary<string, PublicKey> PublicKeys
+        {
+            get
+            {
+                return publicKeys;
+            }
+
+            set
+            {
+                if (value == null)
+                {
+                    return;
+                }
+
+                publicKeys = value;
+
+                List<string> emails = new List<string>();
+
+                foreach(KeyValuePair<string, PublicKey> pair in publicKeys)
+                {
+                    emails.Add(pair.Key);
+                }
+
+                EmailsCbs.ItemsSource = emails;
+                EmailsCbs.SelectedIndex = 0;
+            }
+        }
+
+        private string email = "";
+        public string Email
+        {
+            get
+            {
+                return email;
+            }
+
+            set
+            {
+                E = (publicKeys.ContainsKey(value)) ? publicKeys[value].e : 0;
+                N = (publicKeys.ContainsKey(value)) ? publicKeys[value].n : 0;
+
+                // Очистить зашифрованное сообщение при смене пользователя.
+                EncryptedMessage = new ulong[0];
+            }
+        }
         
         public EncryptionPage()
         {
@@ -77,6 +124,16 @@ namespace RSATutor
             EncryptedMessage = Utils.Encrypt(inputBytes, E, N);
 
             InputBinTextBox.Text = Utils.ToString(inputBytes);
+        }
+
+        private void EmailsCbs_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            List<string> emails = EmailsCbs.ItemsSource as List<string>;
+
+            if (EmailsCbs.SelectedIndex >= 0)
+            {
+                Email = emails[EmailsCbs.SelectedIndex];
+            }
         }
     }
 }

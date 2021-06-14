@@ -49,14 +49,11 @@ namespace RSATutor
                     break;
                 case 2:
                     page = encryptionPage;
-                    encryptionPage.E = keyGeneratorPage.E;
-                    encryptionPage.N = keyGeneratorPage.N;
+                    encryptionPage.PublicKeys = keyGeneratorPage.PublicKeys;
                     break;
                 case 3:
                     page = decryptionPage;
                     decryptionPage.EncryptedMessage = encryptionPage.EncryptedMessage;
-                    decryptionPage.D = keyGeneratorPage.D;
-                    decryptionPage.N = keyGeneratorPage.N;
                     break;
                 default:
                     page = null;

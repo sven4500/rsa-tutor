@@ -37,7 +37,7 @@
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
-            <ComboBox Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="300" Grid.ColumnSpan="3"/>
+            <ComboBox Name="EmailsCbs" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="300" Grid.ColumnSpan="3" SelectionChanged="EmailsCbs_SelectionChanged"/>
             <Button Name="SendButton" Grid.Row="1" Grid.Column="1" Content="Отправить" HorizontalAlignment="Left" VerticalAlignment="Center" Width="100" Height="20"/>
         </Grid>
         <Grid Grid.Row="1" Grid.ColumnSpan="3">
@@ -50,9 +50,9 @@
                 <ColumnDefinition Width="1.5*"/>
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0" Content="e" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            <TextBox Name="ETextBox"  Grid.Column="1" VerticalAlignment="Center"/>
+            <TextBox Name="ETextBox" Text="0" Grid.Column="1" VerticalAlignment="Center"/>
             <Label Grid.Column="2" Content="n" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            <TextBox Name="NTextBox" Grid.Column="3" VerticalAlignment="Center"/>
+            <TextBox Name="NTextBox" Text="0" Grid.Column="3" VerticalAlignment="Center"/>
             <Button Name="EncryptButton" Grid.Column="5" Content="Шифровать" Width="100" Height="20" Click="EncryptButton_Click"/>
         </Grid>
         <TextBlock Grid.Row="2" Grid.Column="0" Margin="10,0,0,0"
