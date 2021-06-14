@@ -197,8 +197,11 @@ namespace RSATutor
         
         private void SendButton_Click(object sender, RoutedEventArgs e)
         {
-            publicKeys[EmailTextBox.Text] = new PublicKey(E, N);
-            privateKeys[EmailTextBox.Text] = new PrivateKey(D, N);
+            if (EmailTextBox.Text.Length > 0)
+            {
+                PublicKeys[EmailTextBox.Text] = new PublicKey(E, N);
+                PrivateKeys[EmailTextBox.Text] = new PrivateKey(D, N);
+            }
         }
     }
 }

@@ -53,7 +53,6 @@ namespace RSATutor
                     break;
                 case 3:
                     page = decryptionPage;
-                    decryptionPage.EncryptedMessage = encryptionPage.EncryptedMessage;
                     break;
                 default:
                     page = null;

@@ -44,7 +44,7 @@ namespace RSATutor
         }
 
         private ulong[] encryptedMessage = null;
-        public ulong[] EncryptedMessage
+        private ulong[] EncryptedMessage
         {
             get
             {
@@ -76,15 +76,13 @@ namespace RSATutor
 
             set
             {
-                if (value == null)
-                {
-                    return;
-                }
-
-                publicKeys = value;
-
                 List<string> emails = new List<string>();
 
+                if (value != null)
+                {
+                    publicKeys = value;
+                }
+                
                 foreach(KeyValuePair<string, PublicKey> pair in publicKeys)
                 {
                     emails.Add(pair.Key);
@@ -95,12 +93,20 @@ namespace RSATutor
             }
         }
 
-        private string email = "";
-        public string Email
+        private Dictionary<string, List<ulong[]>> encryptedMessages = new Dictionary<string, List<ulong[]>>();
+        public Dictionary<string, List<ulong[]>> EncryptedMessages
         {
             get
             {
-                return email;
+                return encryptedMessages;
+            }
+        }
+        
+        private string Email
+        {
+            get
+            {
+                return EmailsCbs.Text;
             }
 
             set
@@ -133,6 +139,22 @@ namespace RSATutor
             if (EmailsCbs.SelectedIndex >= 0)
             {
                 Email = emails[EmailsCbs.SelectedIndex];
+            }
+        }
+        
+        private void SendButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (Email.Length > 0)
+            {
+                if (EncryptedMessage.Length > 0)
+                {
+                    if (!EncryptedMessages.ContainsKey(Email))
+                    {
+                        EncryptedMessages[Email] = new List<ulong[]>();
+                    }
+
+                    EncryptedMessages[Email].Add(EncryptedMessage);
+                }
             }
         }
     }
