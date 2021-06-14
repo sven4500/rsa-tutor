@@ -20,6 +20,7 @@
     </Page.Tag>
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="4*"/>
@@ -31,7 +32,15 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="5*"/>
         </Grid.ColumnDefinitions>
-        <Grid Grid.ColumnSpan="3">
+        <Grid Grid.Row="0" Grid.ColumnSpan="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <ComboBox Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="300" Grid.ColumnSpan="3"/>
+            <Button Name="SendButton" Grid.Row="1" Grid.Column="1" Content="Отправить" HorizontalAlignment="Left" VerticalAlignment="Center" Width="100" Height="20"/>
+        </Grid>
+        <Grid Grid.Row="1" Grid.ColumnSpan="3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.5*"/>
                 <ColumnDefinition Width="2.5*"/>
@@ -46,16 +55,16 @@
             <TextBox Name="NTextBox" Grid.Column="3" VerticalAlignment="Center"/>
             <Button Name="EncryptButton" Grid.Column="5" Content="Шифровать" Width="100" Height="20" Click="EncryptButton_Click"/>
         </Grid>
-        <TextBlock Grid.Row="1" Grid.Column="0" Margin="10,0,0,0"
+        <TextBlock Grid.Row="2" Grid.Column="0" Margin="10,0,0,0"
             VerticalAlignment="Center" Text="Исходное сообщение"/>
-        <TextBox Name="InputTextBox" Grid.Row="2" Grid.Column="0" TextWrapping="WrapWithOverflow"/>
-        <TextBox Name="InputBinTextBox" Grid.Row="4" Grid.Column="0" IsReadOnly="True" TextWrapping="WrapWithOverflow" VerticalScrollBarVisibility="Auto" FontFamily="Courier New"/>
+        <TextBox Name="InputTextBox" Grid.Row="3" Grid.Column="0" TextWrapping="WrapWithOverflow"/>
+        <TextBox Name="InputBinTextBox" Grid.Row="5" Grid.Column="0" IsReadOnly="True" TextWrapping="WrapWithOverflow" VerticalScrollBarVisibility="Auto" FontFamily="Courier New"/>
         <!-- PreviousAndNext потому что колонка имеет размер *-->
-        <GridSplitter Grid.Column="1" Grid.Row="1" Grid.RowSpan="4" Background="White"
+        <GridSplitter Grid.Column="1" Grid.Row="2" Grid.RowSpan="4" Background="White"
             ResizeDirection="Columns" ShowsPreview="False" ResizeBehavior="PreviousAndNext" Width="10"/>
-        <TextBlock Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2" Margin="10,0,0,0"
+        <TextBlock Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="2" Margin="10,0,0,0"
             VerticalAlignment="Center" Text="Зашифрованное сообщение"/>
-        <TextBox Name="OutputTextBox" Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="2" IsReadOnly="True" TextWrapping="WrapWithOverflow"/>
-        <TextBox Name="OutputBinTextBox" Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="2" IsReadOnly="True" TextWrapping="WrapWithOverflow" VerticalScrollBarVisibility="Auto" FontFamily="Courier New"/>
+        <TextBox Name="OutputTextBox" Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="2" IsReadOnly="True" TextWrapping="WrapWithOverflow"/>
+        <TextBox Name="OutputBinTextBox" Grid.Row="5" Grid.Column="4" Grid.ColumnSpan="2" IsReadOnly="True" TextWrapping="WrapWithOverflow" VerticalScrollBarVisibility="Auto" FontFamily="Courier New"/>
     </Grid>
 </Page>

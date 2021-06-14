@@ -26,7 +26,8 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="1.5*"/>
             <RowDefinition Height="0.5*"/>
-            <RowDefinition Height="4*"/>
+            <RowDefinition Height="4.5*"/>
+            <RowDefinition Height="0.5*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
@@ -51,13 +52,17 @@
             <TextBlock Grid.Column="3" Text="q" VerticalAlignment="Center" HorizontalAlignment="Center" />
             <TextBox Name="QTextBox" Grid.Column="4" VerticalAlignment="Center" Text="0"/>
             <Button Name="QRandButton" Content="Случайное" Grid.Column="5" VerticalAlignment="Center" Width="75" Height="20" Click="QRandButton_Click"/>
-            <Button Name="GenerateButton" Content="Сгенерировать" Grid.Column="6"  Width="100" Height="20" Click="GenerateButton_Click"/>
+            <Button Name="GenerateButton" Content="Сгенерировать" Grid.Column="6" Width="100" Height="20" Click="GenerateButton_Click"/>
         </Grid>
         <TextBlock TextWrapping="Wrap" TextAlignment="Justify" Grid.ColumnSpan="2">
-            Задайте два простых целых числа p и q, либо нажмите на кнопку "Случайное" чтобы
-            выбрать случайное простое число. Данная демонстрационная программа оперирует байтами,
-            то есть разбивает сообщение на блоки размером k = 8 бит поэтому p и q должны быть такими
-            что p * q >= 256. Нажмите кнопку "Сгенерировать" чтобы сгенерировать пару ключей.
+            Задайте два простых целых числа p и q, либо нажмите на кнопку
+            "Случайное" чтобы выбрать случайное простое число. Данная
+            демонстрационная программа оперирует байтами, то есть разбивает
+            сообщение на блоки размером k = 8 бит поэтому p и q должны быть
+            такими что p * q >= 256. Нажмите кнопку "Сгенерировать" чтобы
+            сгенерировать пару ключей. Введите адрес электронной почты
+            пользователя и нажмите на кнопку "Отправить" чтобы передать
+            отправителю публичный ключ.
         </TextBlock>
         <GroupBox Header="Публичный ключ" HorizontalAlignment="Stretch" Margin="10" Grid.Row="2" VerticalAlignment="Stretch">
             <Grid HorizontalAlignment="Stretch" Margin="10" VerticalAlignment="Stretch" >
@@ -101,5 +106,15 @@
                 </TextBlock>
             </Grid>
         </GroupBox>
+        <Grid Grid.Row="4" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2.5*"/>
+                <ColumnDefinition Width="3.5*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="2" Content="Отправить" Width="100" Height="20"/>
+            <TextBox Grid.Column="1" VerticalAlignment="Center"/>
+            <Label Grid.Column="0" Content="Электронная почта отправителя" VerticalAlignment="Center"/>
+        </Grid>
     </Grid>
 </Page>
