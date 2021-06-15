@@ -10,12 +10,12 @@
       Title="Шифрование сообщения">
     <Page.Tag>
         <sys:String>
-            Отправитель шифрует сообщение с помощью публичного ключа который
-            ему заранее передал получатель. После зашифровки сообщения его
-            сможет прочитать только тот кому известен приватный ключ, то есть
-            получатель.
-            Шифрование происходит блоками, где зашифрованный блок Ci = Mi ^ e
-            mod n, где Mi блок исходного сообщения.
+            Отправитель зашифровывает отправляемое сообщение с помощью
+            публичного ключа, который ему заранее передал получатель.
+            Зашифрованное сообщение сможет прочитать только тот кому известен
+            приватный ключ, то есть получатель.
+            Зашифровывание происходит блоками, где зашифрованный блок Ci = Mi ^
+            e mod n, где Mi блок исходного сообщения.
         </sys:String>
     </Page.Tag>
     <Grid>
@@ -53,7 +53,7 @@
             <TextBox Name="ETextBox" Text="0" Grid.Column="1" VerticalAlignment="Center"/>
             <Label Grid.Column="2" Content="n" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             <TextBox Name="NTextBox" Text="0" Grid.Column="3" VerticalAlignment="Center"/>
-            <Button Name="EncryptButton" Grid.Column="5" Content="Шифровать" Width="100" Height="20" Click="EncryptButton_Click"/>
+            <Button Name="EncryptButton" Grid.Column="5" Content="Зашифровать" Width="100" Height="20" Click="EncryptButton_Click"/>
         </Grid>
         <TextBlock Grid.Row="2" Grid.Column="0" Margin="10,0,0,0"
             VerticalAlignment="Center" Text="Исходное сообщение"/>

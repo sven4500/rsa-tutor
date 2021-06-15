@@ -80,8 +80,9 @@
                 <TextBlock HorizontalAlignment="Center" Grid.Row="1" TextWrapping="Wrap" Text="e" VerticalAlignment="Center"/>
                 <TextBlock HorizontalAlignment="Center" Grid.Row="2" TextWrapping="Wrap" Text="n" VerticalAlignment="Center"/>
                 <TextBlock HorizontalAlignment="Stretch" TextAlignment="Justify" TextWrapping="Wrap" VerticalAlignment="Stretch" Grid.ColumnSpan="2">
-                    Это публичный ключ. Его стоит передать отправителю сообщений.
-                    Он воспользуется этим ключом чтобы зашифровать отправляемые сообщения.
+                    Это публичный ключ. Его стоит передать отправителю
+                    сообщений. Он воспользуется этим ключом чтобы зашифровывать
+                    отправляемые сообщения.
                 </TextBlock>
             </Grid>
         </GroupBox>
@@ -102,7 +103,8 @@
                 <TextBox Name="PriNTextBox" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Center" IsReadOnly="True" Text="0"/>
                 <TextBlock HorizontalAlignment="Stretch" TextAlignment="Justify" TextWrapping="Wrap" VerticalAlignment="Stretch" Grid.ColumnSpan="2" >
                     Это приватный ключ. Вы воспользуетесь им чтобы
-                    дешифровать принятые сообщения. Его стоит хранить в секрете.
+                    расшифровывать принятые сообщения. Его стоит хранить в
+                    секрете.
                 </TextBlock>
             </Grid>
         </GroupBox>

@@ -10,13 +10,14 @@
       Title="Дешифрование сообщения">
     <Page.Tag>
         <sys:String>
-            Получатель дешифрует сообщение с помощью известного ему приватного
-            ключа. Приватный ключ должен быть известен только одному или
-            нескольким доверенным лицам. Если приватный ключ становится
+            Получатель расшифровывает сообщение с помощью известного ему
+            приватного ключа. Приватный ключ должен быть известен только одному
+            или нескольким доверенным лицам. Если приватный ключ становится
             известен нежелательному лицу, то говорят, что ключ был
             скомпрометирован.
-            Дешифрование происходит по тому же алгоритму что шифрование Mi = Ci
-            ^ d mod n, где Ci блок зашифрованного сообщения.
+            Расшифровывание происходит по тому же алгоритму что и
+            зашифровывание Mi = Ci ^ d mod n, где Ci блок зашифрованного
+            сообщения.
         </sys:String>
     </Page.Tag>
     <Grid>
@@ -54,7 +55,7 @@
             <TextBox Name="DTextBox" Text="0" Grid.Column="1" VerticalAlignment="Center"/>
             <Label Grid.Column="2" Content="n" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             <TextBox Name="NTextBox" Text="0" Grid.Column="3" VerticalAlignment="Center"/>
-            <Button Name="DecryptButton" Grid.Column="5" Content="Дешифровать" Width="100" Height="20" Click="DecryptButton_Click"/>
+            <Button Name="DecryptButton" Grid.Column="5" Content="Расшифровать" Width="100" Height="20" Click="DecryptButton_Click"/>
         </Grid>
         <TextBlock Grid.Row="2" Grid.Column="0" Margin="10,0,0,0"
             VerticalAlignment="Center" Text="Зашифрованное сообщение"/>
@@ -64,7 +65,7 @@
         <GridSplitter Grid.Column="1" Grid.Row="2" Grid.RowSpan="4" Background="White"
             ResizeDirection="Columns" ShowsPreview="False" ResizeBehavior="PreviousAndNext" Width="10"/>
         <TextBlock Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="2" Margin="10,0,0,0"
-            VerticalAlignment="Center" Text="Дешифрованное сообщение"/>
+            VerticalAlignment="Center" Text="Расшифрованное сообщение"/>
         <TextBox Name="OutputTextBox" Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="2" IsReadOnly="True" TextWrapping="WrapWithOverflow" VerticalScrollBarVisibility="Auto"/>
         <TextBox Name="OutputBinTextBox" Grid.Row="5" Grid.Column="4" Grid.ColumnSpan="2" IsReadOnly="True" TextWrapping="WrapWithOverflow" VerticalScrollBarVisibility="Auto" FontFamily="Courier New"/>
     </Grid>
