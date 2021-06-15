@@ -111,8 +111,16 @@ namespace RSATutor
 
             set
             {
-                E = (publicKeys.ContainsKey(value)) ? publicKeys[value].e : 0;
-                N = (publicKeys.ContainsKey(value)) ? publicKeys[value].n : 0;
+                if (publicKeys.ContainsKey(value))
+                {
+                    E = publicKeys[value].e;
+                    N = publicKeys[value].n;
+                }
+                else
+                {
+                    E = 0;
+                    N = 0;
+                }
 
                 // Очистить зашифрованное сообщение при смене пользователя.
                 EncryptedMessage = new ulong[0];

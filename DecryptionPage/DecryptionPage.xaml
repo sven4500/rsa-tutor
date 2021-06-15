@@ -38,8 +38,8 @@
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
-            <ComboBox Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="300"/>
-            <ComboBox Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="100"/>
+            <ComboBox Name="EmailsCbs" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="300" SelectionChanged="EmailsCbs_SelectionChanged"/>
+            <ComboBox Name="MessageCbs" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="120" SelectionChanged="MessageCbs_SelectionChanged"/>
         </Grid>
         <Grid Grid.Row="1" Grid.ColumnSpan="3">
             <Grid.ColumnDefinitions>
@@ -51,14 +51,14 @@
                 <ColumnDefinition Width="1.5*"/>
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0" Content="d" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            <TextBox Name="DTextBox" Grid.Column="1" VerticalAlignment="Center"/>
+            <TextBox Name="DTextBox" Text="0" Grid.Column="1" VerticalAlignment="Center"/>
             <Label Grid.Column="2" Content="n" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            <TextBox Name="NTextBox" Grid.Column="3" VerticalAlignment="Center"/>
+            <TextBox Name="NTextBox" Text="0" Grid.Column="3" VerticalAlignment="Center"/>
             <Button Name="DecryptButton" Grid.Column="5" Content="Дешифровать" Width="100" Height="20" Click="DecryptButton_Click"/>
         </Grid>
         <TextBlock Grid.Row="2" Grid.Column="0" Margin="10,0,0,0"
             VerticalAlignment="Center" Text="Зашифрованное сообщение"/>
-        <TextBox Name="InputTextBox" Grid.Row="3" Grid.Column="0" IsReadOnly="True"/>
+        <TextBox Name="InputTextBox" Grid.Row="3" Grid.Column="0" IsReadOnly="True" TextWrapping="WrapWithOverflow"/>
         <TextBox Name="InputBinTextBox" Grid.Row="5" Grid.Column="0" IsReadOnly="True" TextWrapping="WrapWithOverflow" VerticalScrollBarVisibility="Auto" FontFamily="Courier New"/>
         <!-- PreviousAndNext потому что колонка имеет размер *-->
         <GridSplitter Grid.Column="1" Grid.Row="2" Grid.RowSpan="4" Background="White"
